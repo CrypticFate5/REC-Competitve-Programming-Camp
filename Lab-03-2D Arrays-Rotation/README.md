@@ -210,13 +210,14 @@ void transpose(int n, int arr[][n])
     }
 }
 
-void rotate(int n,int arr[][n]){
-    transpose(n,arr);
-    for(int k=0;k<n;k++){
-        int i=0,j=n-1;
-        while(i<j) {
-            swap(&arr[k][i++],&arr[k][j--]);
-        }
+void rotate(int n, int arr[][n])
+{
+    transpose(n, arr);
+    for (int k = 0; k < n; k++)
+    {
+        int i = 0, j = n - 1;
+        while (i < j)
+            swap(&arr[k][i++], &arr[k][j--]);
     }
 }
 int main()
@@ -232,7 +233,7 @@ int main()
         }
     }
     char op[2];
-    int rot=0;
+    int rot = 0;
     while (1)
     {
         scanf("%s", op);
@@ -248,10 +249,14 @@ int main()
         {
             int x, y, z;
             scanf("%d %d %d", &x, &y, &z);
-            if(rot==0) arr[x - 1][y - 1] = z;
-            else if(rot==1) arr[y-1][n-x]=z;
-            else if(rot==2) arr[n-x][n-y]=z;
-            else arr[n-y][x-1]=z;
+            if (rot == 0)
+                arr[x - 1][y - 1] = z;
+            else if (rot == 1)
+                arr[y - 1][n - x] = z;
+            else if (rot == 2)
+                arr[n - x][n - y] = z;
+            else
+                arr[n - y][x - 1] = z;
         }
         else
         {
@@ -259,9 +264,10 @@ int main()
             scanf("%d", &x);
             x = x % 360;
             r = x / 90;
-            rot=(rot+r)%4;
-            for(int i=0;i<r;i++){
-                rotate(n,arr);
+            rot = (rot + r) % 4;
+            for (int i = 0; i < r; i++)
+            {
+                rotate(n, arr);
             }
         }
     }
