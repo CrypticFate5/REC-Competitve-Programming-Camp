@@ -45,7 +45,7 @@ int main()
     while (1)
     {
         scanf("%s", op);
-        if (op[0] == -1)
+        if (op[0] == '-')
             return 0;
         else if (op[0] == 'Q')
         {
